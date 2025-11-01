@@ -22,7 +22,10 @@
 
 ### Overview
 **HeaderCheck** is a Chrome extension that inspects HTTP response headers for the active tab and scores the site’s privacy and security posture.  
-It uses a weighted model to surface critical, medium, and low findings, giving an actionable numeric score out of 100.
+It uses a deterministic Boolean scoring model (SCM-2025.1) to evaluate HTTP response headers and calculate a 0–100 score.
+The model reflects real-world privacy and transport posture, not exploit severity.
+
+Current model version: SCM-2025.1 (documentation update; binary unchanged)
 
 ---
 
@@ -43,7 +46,7 @@ It uses a weighted model to surface critical, medium, and low findings, giving a
 | <70    | ❌ Fail    | Critical controls missing              |
 
 Full scoring model:  
-[HeaderCheck Detailed Documentation](https://yvonlabs.github.io/docs/HeaderCheck_Detailed_Documentation)
+[HeaderCheck Scoring Model Documentation](https://yvonlabs.github.io/docs/scoring-models)
 
 ---
 
@@ -66,7 +69,7 @@ Unified for all YvonLabs tools:
 
 ### Stay Updated
 Follow updates and other projects from YvonLabs at
-👉 https://yvonlabs.github.io
+👉 👉 [yvonlabs.github.io](https://yvonlabs.github.io)
 
 ---
 
