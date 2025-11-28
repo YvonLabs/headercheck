@@ -3,7 +3,6 @@ name: "🐞 HeaderCheck bug report"
 about: Report something in HeaderCheck that is not working as expected
 title: "[Bug] "
 labels: ["bug"]
-assignees: ""
 ---
 
 ### Summary
