@@ -53,7 +53,7 @@ document.getElementById("bugBtn")?.addEventListener("click", () =>
   chrome.tabs.create({ url: "https://github.com/YvonLabs/headercheck/issues" })
 );
 document.getElementById("siteBtn")?.addEventListener("click", () =>
-  chrome.tabs.create({ url: "yvonlabs.github.io" })
+  chrome.tabs.create({ url: "https://yvonlabs.github.io" })
 );
 
 // =========================
