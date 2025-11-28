@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HeaderCheck · YvonLabs</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Scrollable content -->
+  <main class="app-scroll">
+
+    <!-- Updated Header -->
+    <header class="header-row">
+  <div class="product-block">
+    <div class="icon-chip">
+      <img src="icons/headercheck128.png" class="icon-img" alt="HeaderCheck icon" />
+    </div>
+    <div class="titles">
+      <div class="product-name">HeaderCheck</div>
+      <div class="byline">YvonLabs · local scan</div>
+    </div>
+  </div>
+  <button id="scanBtn" class="scan-btn">Scan</button>
+</header>
+
+    <!-- Single, explicit layout grid -->
+    <div class="app-grid">
+      <section class="card page-card">
+        <div class="summary-head-row">
+          <div class="summary-title">Page</div>
+          <button id="copyCurlBtn" class="mini-btn" title="Copy cURL for this page">Copy cURL</button>
+        </div>
+        <div id="currentUrl" class="page-url">–</div>
+        <div class="page-meta">
+          <span id="pageScanTime" class="page-scan-time">Last scanned: –</span>
+        </div>
+      </section>
+
+      <section class="card status-card">
+        <div class="summary-head-row">
+          <div class="summary-title">Status</div>
+          <button id="copyReportBtn" class="mini-btn" title="Copy Markdown report">Copy report</button>
+        </div>
+
+        <div class="status-row">
+          <div class="status-label">Risk</div>
+          <div id="riskChip" class="risk-chip">–</div>
+        </div>
+
+        <div class="status-row">
+          <div class="status-label">Headers passing</div>
+          <div class="status-val">
+            <span id="scoreCount">0</span> / <span id="scoreTotal">0</span>
+          </div>
+        </div>
+
+        <div class="status-row">
+          <div class="status-label">Score</div>
+          <div class="status-val">
+            <span id="scorePct">0%</span>
+            <span id="gradeChip" class="grade-chip grade-C">C</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card headers-card">
+        <div class="audit-head-row">
+          <div class="audit-head-title">Headers</div>
+          <div class="audit-head-help">Status of key security headers</div>
+        </div>
+        <div id="results" class="results-list"></div>
+      </section>
+
+      <section class="card history-card">
+        <div class="card-label-row">
+          <div class="card-label">History</div>
+          <button id="clearHistoryBtn" class="mini-btn subtle" title="Clear local history">Clear</button>
+        </div>
+        <div id="historyList" class="history-list">
+          <div id="historyEmpty" class="history-empty">No previous scans yet</div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer-fixed">
+    <div class="footer-top">
+      <div id="statusMsg" class="status-msg"></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="about-left">
+        <div class="about-version">v0.3.0</div>
+        <button id="themeToggleBtn" class="about-theme-btn" aria-label="Toggle theme">
+          <span id="themeIcon">☀</span>
+          <span id="themeLabel" class="about-theme-label">Light</span>
+        </button>
+      </div>
+      <div class="about-links">
+        <button id="bugBtn" class="about-link-btn">Report bug</button>
+        <button id="siteBtn" class="about-link-btn">Website</button>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
