@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://yvonlabs.github.io/assets/headercheck_logo.png" alt="HeaderCheck logo" width="280"><br>
-  <b>HeaderCheck – fast, opinionated HTTP header analysis for privacy and security.</b>
+  <b>HeaderCheck – fast, deterministic HTTP header analysis for privacy and security.</b>
 </p>
 
 <p align="center">
@@ -21,59 +21,69 @@
 ---
 
 ### Overview
-**HeaderCheck** is a Chrome extension that inspects HTTP response headers for the active tab and scores the site’s privacy and security posture.  
-It uses a deterministic Boolean scoring model (SCM-2025.1) to evaluate HTTP response headers and calculate a 0–100 score.
-The model reflects real-world privacy and transport posture, not exploit severity.
 
-Current model version: SCM-2025.1 (documentation update; binary unchanged)
+**HeaderCheck** is a Chrome extension that inspects HTTP response headers for the active tab and evaluates a site’s security and privacy posture.
+
+It uses a deterministic **weighted scoring model** (`SCM-2025.1`) to produce a score from **0–100**, based on the presence and validity of key security headers.  
+All processing is performed **locally in the browser** with no remote calls, storage, or telemetry.
+
+Current scoring model: **SCM-2025.1**
 
 ---
 
 ### Features
-- **Weighted scoring** - based on real-world exploit and privacy risk  
-- **Instant scan** - one click, one score  
-- **Actionable guidance** - concise remediation per header  
-- **Zero telemetry** - all checks performed locally in the browser  
-- **EU-aligned defaults** - emphasizes privacy and transport integrity  
+
+- **Deterministic weighted scoring**  
+  Based on a 10-point raw weight model normalized to 100.  
+- **Instant analysis**  
+  One click, one score.  
+- **Clear guidance**  
+  Highlights missing or weak headers.  
+- **Zero telemetry**  
+  Evaluation happens entirely inside Chrome’s extension sandbox.  
+- **EU-aligned privacy emphasis**  
+  Prioritizes transport integrity, referrer minimization, and isolation boundaries.
+
+---
+
+### What HeaderCheck Evaluates
+
+HeaderCheck focuses on high-impact, modern browser security controls:
+
+| Header | Purpose |
+|--------|---------|
+| **Strict-Transport-Security** | Prevents downgrade attacks and enforces HTTPS |
+| **Content-Security-Policy** | Strongest browser-side XSS and injection control |
+| **COOP / COEP / CORP** | Context isolation and cross-origin boundary protection |
+| **Permissions-Policy** | Restricts powerful browser APIs |
+| **Referrer-Policy** | Minimizes referrer leakage |
+| **X-Frame-Options / frame-ancestors** | Clickjacking defense |
+| **X-Content-Type-Options (nosniff)** | Prevents MIME sniffing |
+
+Some headers are **graded** (affect score), others are **informational** (shown but not penalized).
+
+Full model documentation:  
+https://yvonlabs.github.io/docs/scoring-models
 
 ---
 
 ### Scoring Bands
-| Range  | Grade      | Meaning                                |
-|------- |------------|----------------------------------------|
-| 90–100 | ✅ Pass    | Headers in strong alignment            |
-| 70–89  | ⚠️ Warning | Minor issues or missing best practices |
-| <70    | ❌ Fail    | Critical controls missing              |
 
-Full scoring model:  
-[HeaderCheck Scoring Model Documentation](https://yvonlabs.github.io/docs/scoring-models)
+HeaderCheck assigns grades based on the final weighted percentage:
+
+| Score | Grade | Meaning |
+|--------|--------|---------|
+| **≥ 85 percent** | A–B | Strong alignment with modern best practices |
+| **< 85 percent** | C–D | Missing or weak required controls |
+| **< 60 percent** | F | High-risk posture with critical gaps |
+
+**Critical headers:**  
+Content-Security-Policy and Strict-Transport-Security.
 
 ---
 
 ### Installation
+
 1. **Clone the repo**
    ```bash
    git clone https://github.com/YvonLabs/headercheck.git
-   ```
-2. **Open Chrome** and go to `chrome://extensions/`  
-3. **Enable Developer Mode**  
-4. **Click “Load unpacked”** and select the `headercheck` folder  
-
----
-
-### Privacy Policy
-Unified for all YvonLabs tools:  
-[https://yvonlabs.github.io/docs/privacy-policy](https://yvonlabs.github.io/docs/privacy-policy)
-
----
-
-### Stay Updated
-Follow updates and other projects from YvonLabs at
-👉 👉 [yvonlabs.github.io](https://yvonlabs.github.io)
-
----
-
-<p align="center">
-  <sub>Minimal • Fast • Focused © YvonLabs</sub>
-</p>
-
