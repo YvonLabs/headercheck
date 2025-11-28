@@ -94,5 +94,5 @@ Content-Security-Policy and Strict-Transport-Security.
 
 If you find HeaderCheck helpful, you can support future open-source tools:
 
-☕ <a href="https://buymeacoffee.com/yvonlabs" target="_blank" rel="noopener noreferrer">Support YvonLabs</a>
+☕ https://buymeacoffee.com/yvonlabs
 
