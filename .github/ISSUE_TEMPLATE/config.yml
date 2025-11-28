@@ -1,5 +1,6 @@
 blank_issues_enabled: false
-contact_links:[]
-  - name: 🌐 Visit ToastKit website
-    url: https://yvonlabs.github.io
-    about: Learn more about ToastKit and YvonLabs projects.
+
+contact_links:
+  - name: 🌐 Visit HeaderCheck website
+    url: https://yvonlabs.github.io/headercheck/
+    about: Learn more about HeaderCheck and YvonLabs projects.
