@@ -87,3 +87,12 @@ Content-Security-Policy and Strict-Transport-Security.
 1. **Clone the repo**
    ```bash
    git clone https://github.com/YvonLabs/headercheck.git
+
+   ---
+
+### Support YvonLabs
+
+If you find HeaderCheck helpful, you can support future open-source tools:
+
+☕ https://buymeacoffee.com/yvonlabs
+
