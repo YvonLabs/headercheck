@@ -50,10 +50,10 @@ themeToggleBtn?.addEventListener("click", toggleTheme);
 /* External links */
 // =========================
 document.getElementById("bugBtn")?.addEventListener("click", () =>
-  chrome.tabs.create({ url: "https://yvonlabs.com/support" })
+  chrome.tabs.create({ url: "https://github.com/YvonLabs/headercheck/issues" })
 );
 document.getElementById("siteBtn")?.addEventListener("click", () =>
-  chrome.tabs.create({ url: "https://yvonlabs.com" })
+  chrome.tabs.create({ url: "yvonlabs.github.io" })
 );
 
 // =========================
@@ -376,7 +376,7 @@ function buildMarkdownReport(url, map, scoreInfo) {
 
 ---
 
-Generated locally with **[HeaderCheck by YvonLabs](https://yvonlabs.com)**.
+Generated locally with **[HeaderCheck by YvonLabs](https://github.com/YvonLabs/headercheck/)**.
 `;
 
   return head + rows + foot;
